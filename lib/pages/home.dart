@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:store/components/store_block.dart';
-import 'package:store/components/store_list.dart';
-import 'package:store/components/store_provider.dart';
+import 'package:store/components/store/store_block.dart';
+import 'package:store/components/store/store_list.dart';
+import 'package:store/components/store/store_provider.dart';
 
 const cartBarHeight = 100.0;
-const _backgroundColor = Color(0XFFF6F5F2);
+const backgroundColor = Color(0XFFF6F5F2);
 const _panelTransition = Duration(milliseconds: 500);
 
 class Home extends StatefulWidget {
@@ -68,15 +68,15 @@ class _HomeState extends State<Home> {
                         right: 0,
                         top: _getTopForWhitePanel(block.storeState, size),
                         height: size.height - kToolbarHeight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(30),
-                              bottomRight: Radius.circular(30),
-                            ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30),
                           ),
-                          child: StoreList(),
+                          child: Container(
+                            padding: EdgeInsets.only(top: 20),
+                            child: StoreList(),
+                          ),
                         ),
                       ),
                       AnimatedPositioned(
@@ -112,10 +112,13 @@ class _AppBarGrocery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: kToolbarHeight,
-      color: _backgroundColor,
+      color: backgroundColor,
       child: Row(
         children: [
-          BackButton(color: Colors.black),
+          IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () => null,
+          ),
           SizedBox(width: 10),
           Expanded(
             child: Text(

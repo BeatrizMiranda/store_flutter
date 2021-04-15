@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store/components/store_block.dart';
+import 'package:store/components/store/store_block.dart';
 
 class StoreProvider extends InheritedWidget {
   final StoreBlock block;

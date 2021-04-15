@@ -9,7 +9,6 @@ class StoreBlock with ChangeNotifier {
 
   void changeToNormal() {
     storeState = StoreState.normal;
-    notifyListeners();
   }
 
   void changeToCart() {
