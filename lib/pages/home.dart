@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
 
   double _getTopForWhitePanel(StoreState state, Size size) {
     if (state == StoreState.normal) {
-      return -cartBarHeight;
+      return -cartBarHeight + kToolbarHeight;
     } else if (state == StoreState.cart) {
       return -(size.height - kToolbarHeight - cartBarHeight / 2);
     }
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
 
   double _getTopForBlackPanel(StoreState state, Size size) {
     if (state == StoreState.normal) {
-      return size.height - kToolbarHeight - cartBarHeight;
+      return size.height - cartBarHeight;
     } else if (state == StoreState.cart) {
       return cartBarHeight / 2;
     }
@@ -45,8 +45,19 @@ class _HomeState extends State<Home> {
     return 0.0;
   }
 
+  double _getTopForAppBar(StoreState state, double statusBarHeight) {
+    if (state == StoreState.normal) {
+      return statusBarHeight;
+    } else if (state == StoreState.cart) {
+      return -cartBarHeight;
+    }
+
+    return 0.0;
+  }
+
   @override
   Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
     final size = MediaQuery.of(context).size;
     return StoreProvider(
       block: block,
@@ -55,49 +66,92 @@ class _HomeState extends State<Home> {
         builder: (context, snapshot) {
           return Scaffold(
             backgroundColor: Colors.black,
-            body: Column(
+            body: Stack(
               children: [
-                _AppBarGrocery(),
-                Expanded(
-                  child: Stack(
-                    children: [
-                      AnimatedPositioned(
-                        duration: _panelTransition,
-                        curve: Curves.decelerate,
-                        left: 0,
-                        right: 0,
-                        top: _getTopForWhitePanel(block.storeState, size),
-                        height: size.height - kToolbarHeight,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                            bottomRight: Radius.circular(30),
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child: StoreList(),
-                          ),
-                        ),
-                      ),
-                      AnimatedPositioned(
-                        duration: _panelTransition,
-                        curve: Curves.decelerate,
-                        left: 0,
-                        right: 0,
-                        top: _getTopForBlackPanel(block.storeState, size),
-                        height: size.height,
-                        child: GestureDetector(
-                          onVerticalDragUpdate: _onVerticalGesture,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black,
+                AnimatedPositioned(
+                  duration: _panelTransition,
+                  curve: Curves.decelerate,
+                  left: 0,
+                  right: 0,
+                  top: _getTopForWhitePanel(block.storeState, size),
+                  height: size.height - kToolbarHeight,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(top: 20),
+                      child: StoreList(),
+                    ),
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: _panelTransition,
+                  curve: Curves.decelerate,
+                  left: 0,
+                  right: 0,
+                  top: _getTopForBlackPanel(block.storeState, size),
+                  height: size.height,
+                  child: GestureDetector(
+                    onVerticalDragUpdate: _onVerticalGesture,
+                    child: Container(
+                      color: Colors.black,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(25.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Cart',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: List.generate(
+                                        block.cart.length,
+                                        (index) => Hero(
+                                          tag:
+                                              'list_${block.cart[index].product.name}_details',
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            backgroundImage: AssetImage(
+                                              block.cart[index].product.image,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                          Spacer(),
+                          Placeholder(),
+                        ],
+                      ),
+                    ),
                   ),
-                )
+                ),
+                AnimatedPositioned(
+                  left: 0,
+                  right: 0,
+                  curve: Curves.decelerate,
+                  duration: _panelTransition,
+                  top: _getTopForAppBar(block.storeState, statusBarHeight),
+                  child: _AppBarGrocery(),
+                ),
               ],
             ),
           );
@@ -117,7 +171,7 @@ class _AppBarGrocery extends StatelessWidget {
         children: [
           IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           ),
           SizedBox(width: 10),
           Expanded(

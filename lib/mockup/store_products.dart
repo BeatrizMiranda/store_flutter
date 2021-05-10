@@ -18,84 +18,96 @@ const storeProducts = <StoreProduct>[
   StoreProduct(
     price: 8.30,
     name: "Avocado",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/avocado.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Banana",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/banana.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Mango",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/mango.jpg',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Pineapple",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/pineapple.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Cherry",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/cherry.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Orange",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/orange.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Avocado2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/avocado.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Banana2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/banana.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Mango2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/mango.jpg',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Pineapple2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/pineapple.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Cherry2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/cherry.png',
     weight: '500g',
   ),
   StoreProduct(
     price: 8.30,
     name: "Orange2",
-    description: "lorem ipsum dolor sit amet, consectetur adip",
+    description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, aliquid. Amet distinctio, rem maxime officia maiores nam iste perferendis voluptatem voluptatum, excepturi quo reprehenderit ullam vero commodi, rerum dignissimos inventore eveniet ab nostrum? Enim reiciendis rem harum dolore magni?",
     image: 'assets/store/orange.png',
     weight: '500g',
   ),

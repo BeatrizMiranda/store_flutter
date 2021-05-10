@@ -8,9 +8,10 @@ class StoreList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final block = StoreProvider.of(context).block;
+    double statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Container(
-      padding: EdgeInsets.fromLTRB(15, cartBarHeight, 15, 0),
+      padding: EdgeInsets.fromLTRB(15, cartBarHeight + statusBarHeight, 15, 0),
       color: backgroundColor,
       child: StaggeredDualView(
         offserPercent: 0.2,
@@ -25,8 +26,10 @@ class StoreList extends StatelessWidget {
                     return FadeTransition(
                       opacity: animation,
                       child: ProductDetails(
-                        product: product,
-                      ),
+                          product: product,
+                          onAddToCart: () {
+                            block.addProduct(product);
+                          }),
                     );
                   },
                 ),
