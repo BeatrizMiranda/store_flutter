@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:store/components/store/store_provider.dart';
+
+class StoreCart extends StatefulWidget {
+  StoreCart({Key key}) : super(key: key);
+
+  @override
+  _StoreCartState createState() => _StoreCartState();
+}
+
+class _StoreCartState extends State<StoreCart> {
+  @override
+  Widget build(BuildContext context) {
+    final block = StoreProvider.of(context).block;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: 30, left: 25, right: 25),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  "Cart",
+                  style: Theme.of(context).textTheme.headline4.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100.0),
+              ),
+              elevation: 2,
+              padding: EdgeInsets.all(5),
+              primary: Color(0xFFF4C459),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 15),
+              child: Text(
+                'Next',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            onPressed: () => null,
+          ),
+        ],
+      ),
+    );
+  }
+}
