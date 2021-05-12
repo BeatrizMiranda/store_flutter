@@ -114,17 +114,46 @@ class _HomeState extends State<Home> {
                                 Expanded(
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: List.generate(
-                                        block.cart.length,
-                                        (index) => Hero(
-                                          tag:
-                                              'list_${block.cart[index].product.name}_details',
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            backgroundImage: AssetImage(
-                                              block.cart[index].product.image,
-                                            ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 15.0),
+                                      child: Row(
+                                        children: List.generate(
+                                          block.cart.length,
+                                          (index) => Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 8.0),
+                                            child: Stack(children: [
+                                              Hero(
+                                                tag:
+                                                    'list_${block.cart[index].product.name}_details',
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(2),
+                                                  child: CircleAvatar(
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    backgroundImage: AssetImage(
+                                                      block.cart[index].product
+                                                          .image,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Positioned(
+                                                right: 0,
+                                                child: CircleAvatar(
+                                                  radius: 10,
+                                                  backgroundColor: Colors.red,
+                                                  child: Text(
+                                                    block.cart[index].quantity
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]),
                                           ),
                                         ),
                                       ),
@@ -132,7 +161,14 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 CircleAvatar(
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: Color(0xFFF4C459),
+                                  child: Text(
+                                    block.totalItemsCart().toString(),
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),

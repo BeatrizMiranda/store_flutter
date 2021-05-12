@@ -30,6 +30,9 @@ class StoreBlock with ChangeNotifier {
     cart.add(StoreItem(product: product));
     notifyListeners();
   }
+
+  int totalItemsCart() =>
+      cart.fold<int>(0, (previous, element) => previous + element.quantity);
 }
 
 class StoreItem {
