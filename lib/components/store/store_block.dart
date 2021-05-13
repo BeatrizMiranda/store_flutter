@@ -18,6 +18,21 @@ class StoreBlock with ChangeNotifier {
     notifyListeners();
   }
 
+  void decrementQtd(StoreProduct product) {
+    for (StoreItem item in cart) {
+      if (item.product.name == product.name) {
+        item.decrement();
+
+        if (item.quantity == 0) {
+          cart.remove(product);
+        }
+
+        notifyListeners();
+        return;
+      }
+    }
+  }
+
   void addProduct(StoreProduct product) {
     for (StoreItem item in cart) {
       if (item.product.name == product.name) {
@@ -31,6 +46,18 @@ class StoreBlock with ChangeNotifier {
     notifyListeners();
   }
 
+  void deleteProduct(StoreItem product) {
+    cart.remove(product);
+    notifyListeners();
+  }
+
+  String totalPriceInCart() => cart
+      .fold<double>(
+          0.0,
+          (previous, element) =>
+              previous + (element.quantity * element.product.price))
+      .toStringAsFixed(2);
+
   int totalItemsCart() =>
       cart.fold<int>(0, (previous, element) => previous + element.quantity);
 }
@@ -41,11 +68,11 @@ class StoreItem {
 
   StoreItem({this.quantity = 1, @required this.product});
 
-  void add() {}
-
   void increment() {
     quantity++;
   }
 
-  void decrement() {}
+  void decrement() {
+    quantity--;
+  }
 }
